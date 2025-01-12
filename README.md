@@ -125,7 +125,7 @@ Update .env with your configuration, especially the Bitcoin client RPC settings.
     ``` 
 2. **Run stress test**
     ```bash
-     npm run test:stress-test
+     npm run test:stress
    ```
 This test simulates multiple peers interacting with the wallet.
 

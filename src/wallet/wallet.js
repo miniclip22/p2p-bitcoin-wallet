@@ -34,19 +34,22 @@ function validateAmount(amount) {
 }
 
 /**
- * Load a wallet into the Bitcoin Core client.
+ * Load a wallet into Bitcoin Core.
  * @param {string} walletName - The name of the wallet to load.
  * @returns {Promise<void>}
  */
 async function loadWallet(walletName) {
     try {
-        validateWalletName(walletName);
         console.log(`Loading wallet: ${walletName}...`);
         const result = await client.command('loadwallet', walletName);
         console.log(`Wallet "${walletName}" loaded successfully:`, result);
     } catch (error) {
-        console.error(`Error loading wallet "${walletName}":`, error.message);
-        throw error; // Re-throw the error
+        if (error.code === -35) { // Wallet already loaded
+            console.log(`Wallet "${walletName}" is already loaded.`);
+        } else {
+            console.error(`Error loading wallet "${walletName}":`, error.message);
+            throw error; // Re-throw unexpected errors
+        }
     }
 }
 

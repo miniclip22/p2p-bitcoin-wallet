@@ -1,0 +1,21 @@
+{
+  "name": "p2p-bitcoin-wallet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/*.js",
+    "test:stress": "node test/stress-test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bitcoin-core": "^4.2.0",
+    "dotenv": "^16.4.7",
+    "hyperbee": "^2.21.2",
+    "hypercore": "^10.38.2",
+    "hyperswarm": "^4.8.4",
+    "random-access-memory": "^6.2.1"
+  }
+}
